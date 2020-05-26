@@ -1,3 +1,7 @@
 module.exports = {
-  theme: {},
+  theme: {
+    colors: {
+      green: '#43bc70',
+    },
+  },
 }
