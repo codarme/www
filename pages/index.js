@@ -1,11 +1,11 @@
 import { Logo } from '~/components/Logo'
-
-// const SocialLinks = () => <div className="text-white">Social Links</div>
+import { SocialLinks } from '~/components/SocialLinks'
 
 const Topbar = () => (
-  <div className="p-2 flex justify-between  items-center">
+  <div className="p-2 md:p-8 flex justify-between items-center">
     <Logo className="md:hidden" color="#FFF" height={50} icon />
     <Logo className="hidden md:block" color="#FFF" height={50} />
+    <SocialLinks />
   </div>
 )
 
