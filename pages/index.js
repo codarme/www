@@ -1,24 +1,6 @@
-import { Logo } from '~/components/Logo'
-import { SocialLinks } from '~/components/SocialLinks'
-
-const Topbar = () => (
-  <div className="max-w-5xl container p-2 md:p-8 flex justify-between items-center">
-    <Logo className="md:hidden" color="#FFF" height={50} icon />
-    <Logo className="hidden md:block" color="#FFF" height={50} />
-    <SocialLinks />
-  </div>
-)
-
-const Button = ({ ...props }) => (
-  <button {...props} className="p-4 rounded-md bg-green" />
-)
-
-const Input = ({ ...props }) => (
-  <input
-    {...props}
-    className="p-4 mb-3 bg-gunmetal opacity-50 rounded-md md:p-4 md:mb-4"
-  />
-)
+import { Topbar } from '~/components/Topbar'
+import { Button } from '~/components/Button'
+import { Input } from '~/components/Input'
 
 const Presentation = () => (
   <div className="p-3 text-lightGray md:flex-1">
