@@ -19,7 +19,17 @@ const Presentation = () => (
 )
 
 const Form = () => {
-  const onSubmit = (values) => {}
+  const onSubmit = async (data) => {
+    try {
+      await axios({
+        method: 'POST',
+        url: '/api/notify-me',
+        data,
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const formik = useFormik({
     onSubmit,
@@ -45,6 +55,7 @@ const Form = () => {
         value={formik.values.name}
         error={formik.touched.name && formik.errors.name}
         onChange={formik.setFieldValue}
+        disabled={formik.isSubmitting}
       />
       <Input
         type="text"
@@ -53,8 +64,11 @@ const Form = () => {
         value={formik.values.email}
         error={formik.touched.email && formik.errors.email}
         onChange={formik.setFieldValue}
+        disabled={formik.isSubmitting}
       />
-      <Button onClick={formik.handleSubmit}>Me avise!</Button>
+      <Button onClick={formik.handleSubmit} disabled={formik.isSubmitting}>
+        {(formik.isSubmitting && 'Deixa eu anotar aqui...') || 'Me avise!'}
+      </Button>
     </form>
   )
 }
