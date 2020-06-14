@@ -1,3 +1,7 @@
+import axios from 'axios'
+import * as yup from 'yup'
+import { useFormik } from 'formik'
+
 import { Topbar } from '~/components/Topbar'
 import { Button } from '~/components/Button'
 import { Input } from '~/components/Input'
@@ -15,11 +19,44 @@ const Presentation = () => (
 )
 
 const Form = () => {
+  const onSubmit = (event) => {
+    console.log('test')
+  }
+
+  const formik = useFormik({
+    onSubmit,
+    validationSchema: yup.object().shape({
+      name: yup.string().required('Esqueceu de dizer seu nome :)'),
+      email: yup
+        .string()
+        .required('Sem seu e-mail, não consigo te enviar novidades :)')
+        .email('E-mail inválido'),
+    }),
+    initialValues: {
+      name: '',
+      email: '',
+    },
+  })
+
   return (
     <form className="p-4 text-white flex flex-col md:flex-1 md:max-w-sm">
-      <Input type="text" placeholder="Digite seu nome" />
-      <Input type="text" placeholder="Informe seu melhor e-mail" />
-      <Button>Me avise!</Button>
+      <Input
+        type="text"
+        name="name"
+        placeholder="Digite seu nome"
+        value={formik.values.name}
+        error={formik.touched.name && formik.errors.name}
+        onChange={formik.setFieldValue}
+      />
+      <Input
+        type="text"
+        name="email"
+        placeholder="Informe seu melhor e-mail"
+        value={formik.values.email}
+        error={formik.touched.email && formik.errors.email}
+        onChange={formik.setFieldValue}
+      />
+      <Button onClick={formik.handleSubmit}>Me avise!</Button>
     </form>
   )
 }
