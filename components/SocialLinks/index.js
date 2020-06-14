@@ -16,10 +16,10 @@ const Link = ({ as, href }) => {
 
 export const SocialLinks = () => (
   <div className="flex">
+    <Link as={Telegram} href="http://t.me/codarme" />
+    <Link as={Youtube} href="http://youtube.com/codarme" />
+    <Link as={Insta} href="http://instagram.com/codar.me" />
     <Link as={Fb} href="http://facebook.com/codarme" />
     <Link as={Github} href="http://github.com/codarme" />
-    <Link as={Insta} href="http://instagram.com/codar.me" />
-    <Link as={Youtube} href="http://youtube.com/codarme" />
-    <Link as={Telegram} href="http://t.me/codarme" />
   </div>
 )
