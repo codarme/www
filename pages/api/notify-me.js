@@ -8,26 +8,24 @@ export default (req, res) => {
     return res.end()
   }
 
-  res.json({ test: 1 })
-
-  // sendpulse.init(
-  //   process.env.SENDPULSE_KEY,
-  //   process.env.SENDPULSE_SECRET,
-  //   '/tmp/',
-  //   (token) =>
-  //     sendpulse.addEmails(
-  //       (result) => {
-  //         res.statusCode = 200
-  //         res.setHeader('Content-Type', 'application/json')
-  //         res.end(JSON.stringify(result))
-  //       },
-  //       process.env.SENDPULSE_LIST_ID,
-  //       [
-  //         {
-  //           email,
-  //           variables: { name },
-  //         },
-  //       ]
-  //     )
-  // )
+  sendpulse.init(
+    process.env.SENDPULSE_KEY,
+    process.env.SENDPULSE_SECRET,
+    '/tmp/',
+    (token) =>
+      sendpulse.addEmails(
+        (result) => {
+          res.statusCode = 200
+          res.setHeader('Content-Type', 'application/json')
+          res.end(JSON.stringify(result))
+        },
+        process.env.SENDPULSE_LIST_ID,
+        [
+          {
+            email,
+            variables: { name },
+          },
+        ]
+      )
+  )
 }

@@ -19,9 +19,7 @@ const Presentation = () => (
 )
 
 const Form = () => {
-  const onSubmit = (event) => {
-    console.log('test')
-  }
+  const onSubmit = (values) => {}
 
   const formik = useFormik({
     onSubmit,
