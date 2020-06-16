@@ -9,8 +9,8 @@ export const Input = ({ error, onChange, ...props }) => {
       <input
         {...props}
         onChange={handleChange}
-        className={`p-4 bg-gunmetal opacity-50 rounded-md md:p-4 w-full ${
-          error && 'shake'
+        className={`p-4 bg-gunmetal opacity-50 border-2 border-transparent rounded-md md:p-4 w-full ${
+          error && 'shake border-red'
         }`}
       />
       {error && <div className="text-red text-sm p-1">{error}</div>}

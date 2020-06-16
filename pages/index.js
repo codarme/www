@@ -34,10 +34,10 @@ const Form = () => {
   const formik = useFormik({
     onSubmit,
     validationSchema: yup.object().shape({
-      name: yup.string().required('Esqueceu de dizer seu nome :)'),
+      name: yup.string().required('Esqueceu de dizer seu nome :D'),
       email: yup
         .string()
-        .required('Sem seu e-mail, não consigo te enviar novidades :)')
+        .required('Sem e-mail, não consigo te enviar as novidades, hehe')
         .email('E-mail inválido'),
     }),
     initialValues: {
