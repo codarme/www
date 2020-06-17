@@ -22,14 +22,10 @@ const Presentation = () => (
 )
 
 const Form = ({ onSuccess }) => {
-  const onSubmit = async (data) => {
+  const onSubmit = async (values) => {
     try {
-      await axios({
-        method: 'POST',
-        url: '/api/notify-me',
-        data,
-      })
-
+      await axios.post('/api/notify-me', values)
+      fbq('track', 'Lead')
       onSuccess()
     } catch (error) {
       console.log(error)
