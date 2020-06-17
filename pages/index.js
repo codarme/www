@@ -124,10 +124,5 @@ const Hero = () => (
 )
 
 export default function Home() {
-  return (
-    <Hero />
-    // <About />
-    // <Community />
-    // <Footer />
-  )
+  return <Hero />
 }
