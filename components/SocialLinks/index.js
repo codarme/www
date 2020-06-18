@@ -9,7 +9,7 @@ const Link = ({ as, href }) => {
 
   return (
     <a href={href} target="_blank" className="px-2 md:px-3">
-      <Icon className="fill-current text-gray h-6 md:h-8 hover:text-green" />
+      <Icon className="fill-current text-gray hover:text-green" height={30} />
     </a>
   )
 }
