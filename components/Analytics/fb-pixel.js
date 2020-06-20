@@ -1,4 +1,4 @@
-export const FBPixel = ({ code }) => (
+export const FBPixel = ({ codes }) => (
   <>
     <script
       dangerouslySetInnerHTML={{
@@ -11,7 +11,7 @@ export const FBPixel = ({ code }) => (
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '${code}');
+              ${codes.map((code) => `fbq('init', '${code}');`)}
               fbq('track', 'PageView');`,
       }}
     />
