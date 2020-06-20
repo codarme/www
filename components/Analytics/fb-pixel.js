@@ -1,5 +1,5 @@
 export const FBPixel = ({ codes }) => {
-  const initCodes = codes.split(',').map((code) => `fbq('init', '${code}');`)
+  const initCodes = codes.map((code) => `fbq('init', '${code}');`)
 
   return (
     <>
